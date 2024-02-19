@@ -1,0 +1,12 @@
+﻿@model Movie
+@{
+    ViewData["Title"] = "GetPopulares";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach(Movie pelicula in Model.Movies)
+{
+    <h1>@pelicula.Nombre </h1>
+    <img src="@pelicula.Poster"/>
+    <a class="btn btn-success" href="@Url.Action("AgregarFavorito", "Movie", new {idPelicula = @pelicula.IdMovie})"></a>
+}
